@@ -1,0 +1,302 @@
+/* —————————————————— IMPORTS —————————————————— */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+/* —————————————————— RESETS AND BASE STYLE ——————————————————*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-size:62.5%;
+    color:rgb(109, 109, 109);
+}
+
+body {
+    background: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    font: inherit;
+    font-size: 1.2rem;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+/* —————————————————— BURGER MENU —————————————————— */
+
+
+@media (min-width: 768px) {
+    .burger-toggle {
+        cursor: pointer;
+        height: 1rem;
+        right: 13rem;
+        position: absolute;
+        top: 3rem;
+        width: 3rem;
+        z-index:110;
+    }
+}
+
+.burger-toggle {
+    cursor: pointer;
+    height: 1rem;
+    right: 13rem;
+    position: absolute;
+    top: 3.6rem;
+    width: 3rem;
+    z-index:110;
+}
+
+.burger-toggle .burger-toggle-bar, .burger-toggle .burger-toggle-bar::after, .burger-toggle .burger-toggle-bar::before {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background: grey;
+    content: "";
+    height: 0.2rem;
+    transition: all 0.5s;
+    width: 100%;
+}
+
+.burger-toggle .burger-toggle-bar::after {
+    margin-top: 0.5rem;
+}
+
+.burger-toggle .burger-toggle-bar::before {
+    margin-top: -0.5rem;
+}
+
+.burger-toggle.expanded .burger-toggle-bar {
+    background: transparent;
+    right:20rem;
+}
+
+.burger-toggle.expanded .burger-toggle-bar::after, .burger-toggle.expanded .burger-toggle-bar::before {
+    background: grey;
+    margin-top: 0;
+}
+
+.burger-toggle.expanded .burger-toggle-bar::after {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.burger-toggle.expanded .burger-toggle-bar::before {
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+nav {padding:3rem 3rem 3rem 13rem;}
+
+nav p {font-size:16px;
+    font-weight:600;
+text-transform:uppercase;}
+
+.burger {
+    box-shadow: rgba(132, 132, 141, 0.2) 3px 3px 5px 10px;
+    background-color: white;
+    color: grey;
+    font-size: 16px;
+    height: 100vh;
+    opacity:0;
+    right:0;
+    padding: 20% 8rem;
+    position: fixed;
+    top: 0;
+    transition: 0.5s;
+    width: 40rem;
+    z-index: 100;
+}
+
+.burger.expanded {
+    opacity: 1;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: auto 0;
+    padding: 0;
+}
+
+nav ul li{
+    margin:1rem;
+    padding:1rem 1rem 1rem 3rem;
+    font-size:26px;
+    font-weight:600;
+    text-transform:uppercase;
+    border-bottom:1px solid grey;
+    display:block;
+}
+
+/* —————————————————— HERO —————————————————— */
+
+#hero {
+    background-image: url("./img/hero.jpg");
+	background-position: 50% 35%;
+	background-size: cover;
+    width: 96%;
+	height: 30vh; 
+    margin:auto;
+}
+
+
+@media (min-width: 768px) {
+    #hero {
+        background-image: url("./img/hero.jpg");
+        background-position: 50% 35%;
+        background-size: cover;
+        width: 96%;
+        height: 38vh; 
+        margin:auto;
+    }
+}
+
+/* —————————————————— MAIN —————————————————— */
+
+main {width:95%;
+    margin:auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+    margin-top:4rem;}
+
+.box {
+    margin:2rem;
+    background-color: white;
+    width:37rem;
+    height:24rem;
+    padding:3rem 3rem 1rem 3rem;
+    border-radius:1.5rem;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.3fr 1fr 0.2fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "title title title"
+      "content content content"
+      ". . more";
+}  
+.box p {
+    color:rgb(148, 148, 148);
+    grid-area: content;
+    overflow-y:auto;
+    font-size:11px;
+    line-height:1.7;}  
+
+.box h4 {
+    grid-area: title;
+    font-size:15px;
+    font-weight:600;
+}
+.box a {
+    grid-area: more;
+    font-weight:600;
+    margin:1rem 0 0 0;
+}
+.box a:before {
+    content: "▷";
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0;
+}
+
+.box-quote {
+    margin:2rem;
+    background-color: transparent;
+    width:37rem;
+    height:24rem;
+    padding:3rem 3rem 1rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 5fr 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "quote quote quote"
+      ". . quotemore";
+}  
+.box-quote p {
+    grid-area: quote;
+    overflow-y:auto;
+    font-size:16px;
+    font-weight:bold;
+    line-height:1.7;}  
+
+.box-quote a {
+    grid-area: quotemore;
+    font-weight:600;
+    margin:1rem 0 0 0;
+}
+.box-quote a:before {
+    content: "▷";
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 0;
+}
+
+.box-img1 {
+    margin:2rem;
+    background-image: url("./img/card_two.jpeg");
+	background-position: center;
+	background-size: cover;
+    width:37rem;
+    height:24rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+
+} 
+
+.box-img2 {
+    margin:2rem;
+    background-image: url("./img/card_one.jpeg");
+	background-position: center;
+	background-size: cover;
+    width:37rem;
+    height:24rem;
+    border-radius: 1.5rem 0 0 1.5rem;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+
+} 
+
+
+/* —————————————————— footer —————————————————— */
+footer {
+    text-align:center;
+}
+footer p {
+    font-weight:bold;
+    margin:2rem;
+}
+
+@media (min-width: 768px) {
+    footer {
+    padding: 5rem 30rem 2rem 30rem;
+    text-align:center;
+    } 
+}
